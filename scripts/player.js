@@ -3,6 +3,7 @@ import {
   rotationDifference,
 } from "./Face_Tracking/gestureDetection.js";
 import { facePositioning } from "./main.js";
+import { getObjectsInArea } from "./objects/objectHandler.js";
 import { fill, rect, width } from "./toolbox.js";
 
 export class Player {
@@ -15,7 +16,7 @@ export class Player {
 
   h = 50;
   w = 50;
-  scale = 0;
+
   constructor() {}
 
   render() {
@@ -33,25 +34,27 @@ export class Player {
       //If we are on the ground let the player jump!
       if (getisNodding()) {
         this.yVel = -20;
-      }
-
-      this.y -= this.y + this.xVel + this.h - 500;
-      if (this.yVel > 0) {
+      } else {
         this.yVel = 0;
       }
     }
 
-    //Get onGround
-    if (this.y + this.xVel + this.h > 500) this.onGround = true;
-    else this.onGround = false;
-    if (this.y + this.xVel > 500) fill("purple");
-    rect(0, 500, width, 10);
+    if (
+      getObjectsInArea(this.x, this.y, this.w, this.h).filter(
+        (e) => e.colladable
+      ).length > 0
+    ) {
+      this.onGround = true;
+      if (this.yVel > 0) this.yVel = 0;
+    } else {
+      this.onGround = false;
+    }
 
     this.x += this.xVel;
     this.y += this.yVel;
 
-    this.w = facePositioning.face.r;
-    this.h = facePositioning.face.r;
+    //this.w = facePositioning.face.r;
+    //this.h = facePositioning.face.r;
     //this.scale = facePositioning.face.r /
   }
 }

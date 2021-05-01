@@ -6,6 +6,7 @@ import {
 } from "./Face_Tracking/gestureDetection.js";
 import { setupTracking } from "./Face_Tracking/main.js";
 import { showTrackingErrorMessage } from "./Face_Tracking/trackingErrorMessage.js";
+import { addPlatform, handleObjects } from "./objects/objectHandler.js";
 import { Player } from "./player.js";
 import {
   background,
@@ -18,6 +19,9 @@ import {
   centerText,
   width,
   setFontSize,
+  mousePressed,
+  mouseX,
+  mouseY,
 } from "./toolbox.js";
 
 game.start();
@@ -36,6 +40,8 @@ export let successTracking = false,
 export let trackingError = false;
 
 export let player = new Player();
+//addPlatform(50, 510, 300, 20);
+addPlatform(0, 510, width, 20);
 
 export function updateGameArea() {
   var delta = (Date.now() - lastRender) / 1000;
@@ -63,11 +69,17 @@ export function updateGameArea() {
     if (!trackingError) {
       //rect(width / 2 - rotationDifference * 3, height - 50, 40, 40);
       player.run();
+      handleObjects();
       //debug();
     }
   } else {
     successTracking = false;
   }
+
+  if (mousePressed) {
+    addPlatform(mouseX, mouseY, 100, 20);
+  }
+
   player.render();
 
   //if we cant find a face for a second tell the user there was a tracking error
