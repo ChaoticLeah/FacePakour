@@ -17,4 +17,8 @@ export function showTrackingErrorMessage() {
   let txt =
     "Make sure your camera can see you(and nothing obstucting your face), and your room is well lit.";
   text(txt, centerText(txt, 0, width), height / 2 + 50);
+
+  txt =
+    "If this happened when you tilted your head then you tilted it too much.";
+  text(txt, centerText(txt, 0, width), height / 2 + 80);
 }
