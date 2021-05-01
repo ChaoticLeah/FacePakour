@@ -36,8 +36,8 @@ export function detectGestures() {
     if (
       /*Math.abs(lastFramePos.eyesAvrgVerticle - eyesAvrgVerticle) < 1 &&*/
       eyeNod > minNodPixes &&
-      Math.abs(lastFramePos.faceY - faceY) > eyeNod &&
-      Math.abs(rotationDifference) < 15
+      Math.abs(lastFramePos.faceY - faceY) > eyeNod //&&
+      // Math.abs(rotationDifference) < 15
     ) {
       //console.log("passed 1", successfullNodFrames);
       successfullNodFrames++;

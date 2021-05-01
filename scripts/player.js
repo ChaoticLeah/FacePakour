@@ -4,7 +4,7 @@ import {
 } from "./Face_Tracking/gestureDetection.js";
 import { facePositioning } from "./main.js";
 import { getObjectsInArea } from "./objects/objectHandler.js";
-import { fill, rect, width } from "./toolbox.js";
+import { fill, line, rect, width } from "./toolbox.js";
 
 export class Player {
   x = 100;
@@ -22,6 +22,12 @@ export class Player {
   render() {
     fill("red");
     rect(this.x, this.y, this.w, this.h);
+    line(
+      this.x + this.w / 2,
+      this.y + this.h / 2,
+      this.x + this.w / 2 - rotationDifference,
+      this.y - 40
+    );
   }
 
   run() {
