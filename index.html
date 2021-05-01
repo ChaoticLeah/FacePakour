@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="chrome=1">
+		<title>Using pico.js and lploc.js for real-time localization of eye pupils</title>
+		<!--<script src="camvas.js"></script>
+		<script src="./pico.js"></script>
+		<script src="./lploc.js"></script>-->
+		<!--<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">-->
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+				overflow: hidden;
+				/* Hide scrollbars */				
+			}
+		</style>
+	</head>
+	<script src="./scripts/main.js" type="module"></script>
+	<body>
+        <div id = "canvasHolder"></div>
+
+		<p><center><input type="button" value="Start webcam feed" onclick="button_callback()"></center></p>
+		<p><center><canvas width=640 height=480 id = "tracking"></canvas></center></p>
+	</div>
+	</body>
+</html>
