@@ -4,9 +4,9 @@ let isNodding = false,
   successfullNodFrames = 0,
   nodErrorFrameTracker = 0;
 
-const minNodsToCount = 4;
+const minNodsToCount = 2;
 let maxErrors = 36;
-let minNodPixes = 0.3;
+let minNodPixes = 0.5;
 
 let lastFramePos = {};
 

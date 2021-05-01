@@ -32,7 +32,7 @@ export class Player {
 
   run() {
     this.xVel =
-      -(Math.abs(rotationDifference) < 8 ? 0 : rotationDifference) / 2;
+      -(Math.abs(rotationDifference) < 8 ? 0 : rotationDifference) / 3;
 
     if (!this.onGround) {
       this.yVel += 1;
